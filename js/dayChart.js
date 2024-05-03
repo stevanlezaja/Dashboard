@@ -1,9 +1,10 @@
 function generateLabels(period=7) {
     const labels = [];
+    const options = {day: '2-digit', month: 'short'};
     for (let i = period-1; i >= 0; i--) {
       const date = new Date();
       date.setDate(date.getDate() - i);
-      labels.push(date.toLocaleDateString());
+      labels.push(date.toLocaleDateString('en-GB', options));
     }
     return labels;
 }
