@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard"><!--Dashboard-->
+
+        <section calss="navigation"><!--Navigation-->
+            <div>
+                <span class="material-symbols-outlined">home</span>
+            </div>
+            <div>
+                <span class="material-symbols-outlined">menu_book</span>
+                <span class="material-symbols-outlined">monitoring</span>
+                <span class="material-symbols-outlined">grid_view</span>
+                <span class="material-symbols-outlined">mood</span>
+                <span class="material-symbols-outlined">restaurant</span>
+                <span class="material-symbols-outlined">local_laundry_service</span>
+            </div>
+            <div>
+                <span class="material-symbols-outlined">settings</span>
+                <span class="material-symbols-outlined">logout</span>
+            </div>
+            
+        </section><!--Navigation End-->
+
+        <section calss="main"><!--Main-->
+            
+            <div class="title"><!--Title-->
+                <h1>How was your day?</h1>
+            </div><!--Title End-->
+
+            <div class="body"><!--Body-->
+
+                <div class="daily_hours_chart"><!--Daily Hours Chart-->
+                    <canvas id="myChart"></canvas>
+                </div><!--Daily Hours End Chart-->
+
+                <div class="footer"><!--Footer-->
+                    <button class="update_day">Update Day</button>
+                </div><!--Footer End-->
+
+            </div><!--Body End-->
+
+        </section><!--Main End-->
+
+        <section class="secondary"><!--Secondary-->
+
+        </section><!--Secondary End-->
+
+    </div><!--Dashboard End-->
+</body>
+
+<script>
+    function generateLabels() {
+      const labels = [];
+      for (let i = 6; i >= 0; i--) {
+        const date = new Date();
+        date.setDate(date.getDate() - i);
+        labels.push(date.toLocaleDateString());
+      }
+      return labels;
+    }
+
+    // Initialize labels and data
+    const labels = generateLabels();
+    const data = Array(7).fill(0);
+
+    const ctx = document.getElementById('myChart');
+  
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+            y: {beginAtZero: true}
+        }
+      }
+    });
+</script>
+
+</html>
