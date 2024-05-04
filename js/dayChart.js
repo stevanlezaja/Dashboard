@@ -1,16 +1,10 @@
-const periodSelect = document.getElementById('period-select');
-let period;
-
-document.addEventListener('DOMContentLoaded', () => {
-    periodSelect.addEventListener('change', () => {
-        console.log(periodSelect.value);
-    });
-});
 
 function getPeriod() {
     const periodSelect = document.getElementById('period-select');
+    console.log("Period string: " + periodSelect.value);
     const today = new Date();
-    let periodString = periodSelect.value;
+    var periodString = periodSelect.value;
+    if (periodString === "week") return 7;
     if (periodString === "month") {
         if (today.getMonth() === 0 || 2 || 4 || 6 || 7 || 9 || 11) {
             return 31;
@@ -27,7 +21,6 @@ function getPeriod() {
             return 365;
         }
     }
-    return 7;
 }
 
 function getData(period) {
@@ -49,33 +42,38 @@ function generateLabels(period) {
     return labels;
 }
 
-periodSelect.addEventListener('change', () => {
+
+document.addEventListener('DOMContentLoaded', function() {
+    const periodSelect = document.getElementById('period-select');
     let period = getPeriod();
-    let labels = generateLabels(period);
     let data = getData(period);
-    myChart.data.labels = labels;
-    myChart.data.datasets[0].data = data;
-    myChart.update();
-});
-
-// Initialize labels and data
-const labels = generateLabels(period);
-const data = getData(period);
-
-const ctx = document.getElementById('myChart');
-
-new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: labels,
-        datasets: [{
-            data: data,
-            borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {beginAtZero: true}
+    let labels = generateLabels(period);
+    const ctx = document.getElementById('myChart');
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: data,
+                borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {beginAtZero: true}
+            }
         }
-    }
+    });
+    periodSelect.addEventListener('change', function() {
+        period = getPeriod();
+        console.log("Period: " + period);
+        data = getData(period);
+        labels = generateLabels(period);
+        console.log("Data: " + data);
+        console.log("Labels: " + labels);
+        myChart.data.labels = labels;
+        myChart.data.datasets[0].data = data;
+        myChart.update();
+    });
 });
+

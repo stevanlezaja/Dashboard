@@ -38,21 +38,19 @@
                 <div class="title"><!--Title-->
                     <h1>How was your day?</h1>
                 </div><!--Title End-->
-                <div class="sort" id="period-select"><!--Sort-->
-                    <script src="js/periodSelect.js"></script>
+                <div class="sort"><!--Sort-->
                     <select name="period", id='period-select'>
                         <option value="week">Week</option>
                         <option value="month">Month</option>
                         <option value="year">Year</option>
                     </select>
-                    
+                    <script src="js/periodSelect.js"></script>
                 </div><!--Sort End-->
             </div><!--Header End-->
             <div class="body"><!--Body-->
 
                 <div class="daily-hours-chart"><!--Daily Hours Chart-->
                     <canvas id="myChart">
-                        <script src="js/dayChart.js"></script>
                     </canvas>
                 </div><!--Daily Hours End Chart-->
 
@@ -82,6 +80,8 @@
         </section><!--Secondary End-->
 
     </div><!--Dashboard End-->
+    <script src="js/dayChart.js"></script>
+
 </body>
 
 
