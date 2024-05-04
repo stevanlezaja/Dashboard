@@ -121,10 +121,11 @@ body{
         margin: 0px;
         padding: 20px 0px;
         width: 60px;
-        height: 60%;
+        height: 80%;
         position: fixed;
         justify-content: space-between;
         z-index: 10;
+        top: 10%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -141,12 +142,15 @@ body{
     }
     .dashboard .navigation .material-symbols-outlined{
         margin: 10px 0px;
-        font-size: 30px;
+        font-size: 25px;
         color: #727272;
         display: inline-block;
     }
     .dashboard .main{
         margin: 30px 100px 0px 100px;
+        width: 70%;
+        display: flex;
+        flex-direction: column;
     }
     .dashboard .main .header{
         margin: 40px 0px;
@@ -160,7 +164,7 @@ body{
         font-size: 20px;
     }
     .dashboard .main .body{
-        height: 80%;
+        margin-top: 50px;
     }
     .dashboard .main .body .daily-hours-chart{
         padding: 30px;
@@ -168,5 +172,30 @@ body{
         background-color: #f9f9f9;
 
     }
-    
+    .dashboard .secondary{
+        margin: 0px;
+        padding: 20px;
+        width: 20%;
+        height: 80%;
+        position: fixed;
+        top: 10%;
+        right: 0;
+        justify-content: flex-start;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        background-color: #f9f9f9;
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
+    }
+    .dashboard .secondary .todo{
+        margin-top: 20px;
+    }
+    .dashboard .secondary .todo h2{
+        margin: 0px;
+        padding: 0px;
+    }
+    .dashboard .secondary .todo ul{
+        margin-top: 20px;
+    }
 }
