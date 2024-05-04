@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="css/icons.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="assets/css/icons.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -38,15 +38,13 @@
                 <div class="title"><!--Title-->
                     <h1>How was your day?</h1>
                 </div><!--Title End-->
-                <div class="sort"><!--Sort-->
-                    <form>
-                        <select name="period", id="period">
-                            <option value="week">Week</option>
-                            <option value="week">Month</option>
-                            <option value="year">Year</option>
-                            <option value="custom">All</option>
-                        </select>
-                    </form>
+                <div class="sort" id="period-select"><!--Sort-->
+                    <script src="js/periodSelect.js"></script>
+                    <select name="period", id='period-select'>
+                        <option value="week">Week</option>
+                        <option value="month">Month</option>
+                        <option value="year">Year</option>
+                    </select>
                     
                 </div><!--Sort End-->
             </div><!--Header End-->

@@ -58,7 +58,7 @@ body{
     justify-content: space-between;
     align-items: flex-end;
 }
-.dashboard .main .header form select{
+.dashboard .main .header select{
     border: none;
     margin-top: 3px;
     color: #727272;
@@ -160,7 +160,7 @@ body{
         color: #383838;
         margin-left: 50px;
     }
-    .dashboard .main .header .sort form select{
+    .dashboard .main .header .sort select{
         font-size: 20px;
     }
     .dashboard .main .body{
